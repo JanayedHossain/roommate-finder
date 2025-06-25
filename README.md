@@ -38,3 +38,13 @@ Users can create profiles, browse listings, add their own posts, and connect wit
 - Swiper (Carousel)
 
 ---
+
+## Run Locally
+
+Clone the project
+
+```bash
+git https://github.com/JanayedHossain/roommate-finder.git
+
+
+```
