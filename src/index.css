@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #F67326;
+  --color-secondary: teal;
+}
+@font-face {
+  font-family: Caveat;
+  src: url("../src/fonts/Caveat.ttf") format("opentype");
+}
+@font-face {
+  font-family: MPLUS;
+  src: url("../src/fonts/MPLUS.ttf") format("opentype");
+}
+
+@theme {
+  --font-primaryFont: "MPLUS", sans-serif;
+  --font-seconderyFont: "Caveat", sans-serif;
+}
+nav .active {
+  background-color: #F67326;
+  color: white;
+}
