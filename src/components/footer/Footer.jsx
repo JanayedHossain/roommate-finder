@@ -1,53 +1,79 @@
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaTwitter,
-  FaLinkedinIn,
-} from "react-icons/fa";
+import { NavLink } from "react-router";
+import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import logo from "../../assets/logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Footer = () => {
+  const {user}=useContext(AuthContext)
   return (
-    <footer className="bg-gray-900 text-gray-100 py-10 text-sm md:text-base">
-      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div>
-          <h2 className="text-xl font-semibold mb-4">Contact Us</h2>
-          <p>Email: support@roommatefinder.com</p>
-          <p>Phone: +880 123456-7890</p>
-          <p>Address: 123 Dhaka, Bangladesh</p>
-        </div>
-
-        <div>
-          <h2 className="text-xl font-semibold mb-4">Terms & Conditions</h2>
-          <p className="mb-2">
-            By using our platform, you agree to our terms of service and privacy
-            policy. Users are responsible for all content they post.
+    <footer className="bg-[#1F2937] text-white py-10">
+      <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <div className="flex flex-col items-start">
+          <a
+            className="flex items-center text-xl sm:text-2xl font-semibold cursor-pointer"
+            onClick={() => navigate("/")}
+          >
+            <img src={logo} alt="" className="w-9 sm:w-14" />
+            <h1 className="font-seconderyFont text-2xl sm:text-3xl">
+              Roommate<span className="text-[#F67326]">Finder</span>
+            </h1>
+          </a>
+          <p className="mt-4 text-gray-300 text-sm">
+            Find your perfect roommate easily and safely.
           </p>
         </div>
 
         <div>
-          <h2 className="text-xl font-semibold mb-4">Follow Us</h2>
+          <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
+          <ul className="space-y-2 text-sm text-gray-300">
+            <li>
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li>
+              <NavLink to="/all-posts">All Posts</NavLink>
+            </li>
+            <li>
+              <NavLink to="/about-us">About Us</NavLink>
+            </li>
+            <li>
+              <NavLink to="/contact">Contact</NavLink>
+            </li>
+            {user?.email && (
+              <li>
+                <NavLink to="/Dashboard">
+                Dashboard</NavLink>
+              </li>
+            )}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
           <div className="flex space-x-4">
-            <a href="https://facebook.com" target="_blank">
-              <FaFacebookF className="text-xl hover:text-blue-500" />
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noreferrer"
+              className="bg-[#3b5998] hover:bg-opacity-90 p-2 rounded-full"
+              aria-label="Facebook"
+            >
+              <FaFacebookF size={20} />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://linkedin.com"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noreferrer"
+              className="bg-[#0077b5] hover:bg-opacity-90 p-2 rounded-full"
+              aria-label="LinkedIn"
             >
-              <FaInstagram className="text-xl hover:text-pink-500" />
-            </a>
-            <a href="https://twitter.com" target="_blank">
-              <FaTwitter className="text-xl hover:text-sky-400" />
-            </a>
-            <a href="https://linkedin.com" target="_blank">
-              <FaLinkedinIn className="text-xl hover:text-blue-600" />
+              <FaLinkedinIn size={20} />
             </a>
           </div>
         </div>
       </div>
 
-      <div className="text-center text-sm text-gray-400 mt-10">
+      <div className="text-center text-sm text-gray-400 mt-10 border-t border-gray-700 pt-4">
         © {new Date().getFullYear()} RoommateFinder. All rights reserved.
       </div>
     </footer>

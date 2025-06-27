@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
 import Navbar from "../components/header/Navabar";
-import { ToastContainer } from "react-toastify";
+
 import Footer from "../components/footer/Footer";
 
 const Root = () => {
@@ -9,10 +9,6 @@ const Root = () => {
       <Navbar />
       <Outlet />
       <Footer />
-      <ToastContainer
-        autoClose={2000}
-        toastClassName="text-sm p-2 sm:text-base"
-      />
     </div>
   );
 };

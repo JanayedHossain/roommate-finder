@@ -21,8 +21,7 @@ const steps = [
   {
     id: 2,
     title: "Add Roommate Listing",
-    description:
-      "Post your roommate need with rent, location, and preferences.",
+    description: "Submit your roommate listing with all essential details.",
     icon: <FaClipboardList size={40} />,
   },
   {
@@ -65,11 +64,11 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section className="py-12 px-4 md:px-16 ">
-      <h2 className="text-3xl font-semibold text-center  font-primaryFont">
+    <section className="pt-20 w-[95%] mx-auto ">
+      <h2 className="text-3xl font-semibold text-center font-primaryFont">
         How It <span className="text-primary"> Works</span>
       </h2>
-      <p className="text-center w-[90%] text-xs sm:text-sm md:text-base sm:w-3/4 pt-3 mx-auto text-gray-500 pb-14">
+      <p className="text-center w-[95%] text-xs sm:text-sm md:text-base sm:w-3/4 pt-3 mx-auto text-gray-500">
         <Typewriter
           words={["Find, post, and manage roommate listings easily."]}
           loop={true}
@@ -80,7 +79,7 @@ const HowItWorks = () => {
           delaySpeed={2000}
         />
       </p>
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
+      <div className="grid sm:grid-cols-2  lg:grid-cols-4 gap-6 text-center pt-14">
         <Fade cascade damping={0.2} triggerOnce={false}>
           {steps?.map((step) => (
             <div

@@ -23,3 +23,8 @@ nav .active {
   background-color: #F67326;
   color: white;
 }
+
+
+aside .active, footer .active{
+  color: #f67326;
+}

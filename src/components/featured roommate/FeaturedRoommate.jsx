@@ -5,6 +5,7 @@ import { Typewriter } from "react-simple-typewriter";
 
 const FeaturedRoommate = ({ featuredPost }) => {
   const post = featuredPost;
+  
   return (
     <div>
       <h1 className="font-primaryFont text-3xl pt-20 font-semibold text-center">
@@ -22,7 +23,7 @@ const FeaturedRoommate = ({ featuredPost }) => {
         />
       </p>
       <Fade cascade damping={0.2} triggerOnce={false}>
-        <div className="w-[95%] mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 py-14">
+        <div className="w-[95%] mx-auto grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-6 pt-14">
           {post?.map((item) => (
             <div
               key={item._id}
@@ -51,7 +52,7 @@ const FeaturedRoommate = ({ featuredPost }) => {
                 </div>
                 <h1 className="text-lg font-semibold mt-4">{item.title}</h1>
                 <p className="text-gray-500 pt-2 text-sm sm:text-base">
-                  {item.description}
+                  {item.description.length>100?item.description.slice(0,100)+'...':item.description}
                 </p>
               </div>
               <div className="flex items-center justify-between mt-4">

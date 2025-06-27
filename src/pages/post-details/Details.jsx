@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import bgImage from "../../assets/bgImg.png";
+import bgImage from "../../assets/bgImg.jpg";
 import { useLoaderData, useNavigation } from "react-router";
 import { MdOutlinePhone } from "react-icons/md";
 import { AuthContext } from "../../provider/AuthProvider";
@@ -34,7 +34,6 @@ const Details = () => {
         if (data.modifiedCount) {
           setInitialCount(initialCount + 1);
           setShowContact(true);
-          // like button will NOT be disabled so no setLiked here
         }
       })
       .catch(console.error);
@@ -78,7 +77,7 @@ const Details = () => {
               </div>
             </div>
             <div className="mt-3 border-b-[1px]" />
-            <h1 className=" pt-4 md:text-xl text-base">{details.title}</h1>
+            <h1 className=" pt-4 md:text-2xl text-base">{details.title}</h1>
             <p className="text-sm md:text-base">{details.description}</p>
             <p className="flex items-center gap-2 mt-3 text-sm md:text-base">
               <span className="text-primary">Available:</span>

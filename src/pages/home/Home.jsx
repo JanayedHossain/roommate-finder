@@ -7,11 +7,13 @@ import HowItWorks from "../../components/how-it-works/HowItWorks";
 import FAQ from "../../components/faq/Faq";
 import Slider from "../../components/slider/Slider";
 import Loading from "../../components/loading/Loading";
+import Newsletter from "../../components/newsletter/NewsLetter";
 
 const Home = () => {
   const featuredPost = useLoaderData();
+
   const [toggle, setToggle] = useState(false);
-  const navigation = useNavigation()
+  const navigation = useNavigation();
   const isNavigating = Boolean(navigation.location);
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,7 +29,7 @@ const Home = () => {
 
   return (
     <>
-      {isNavigating&&<Loading/>}
+      {isNavigating && <Loading />}
       <div className={toggle ? "bg-black text-white" : ""}>
         <div
           className="fixed flex items-center justify-center h-10 w-10 bg-primary top-1/2 -right-8 z-20 text-white transition-all duration-400 hover:right-0 group cursor-pointer"
@@ -45,6 +47,7 @@ const Home = () => {
         <Slider />
         <FeaturedRoommate featuredPost={featuredPost} />
         <HowItWorks />
+        <Newsletter/>
         <FAQ />
       </div>
     </>

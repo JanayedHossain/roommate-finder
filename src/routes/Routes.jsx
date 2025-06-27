@@ -11,6 +11,11 @@ import Loading from "../components/loading/Loading";
 import Details from "../pages/post-details/Details";
 import UpdatePost from "../pages/update-post/UpdatePost";
 import NotFound from "../pages/not-found/NotFound";
+import Dashboard from "../layout/Dashboard";
+import Overview from "../pages/overview/Overview";
+import BrowsListingCard from "../pages/browse-listing/BrowseListingCard";
+import AboutUs from "../pages/about-us/AboutUs";
+import Contact from "../pages/contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -34,28 +39,13 @@ export const router = createBrowserRouter([
         Component: SignUp,
       },
       {
-        path: "/add-to-find-roommate",
-        element: (
-          <PrivateRoute>
-            <RoommateAddForm />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/browse-listing",
-        Component: BrowseListing,
+        path: "/all-posts",
+        Component: BrowsListingCard,
         loader: () =>
           fetch("https://roommate-finder-server-beta.vercel.app/post"),
         HydrateFallback: Loading,
       },
-      {
-        path: "/my-listing",
-        element: (
-          <PrivateRoute>
-            <MyListing />
-          </PrivateRoute>
-        ),
-      },
+
       {
         path: "/details/:id",
         element: (
@@ -81,6 +71,54 @@ export const router = createBrowserRouter([
             `https://roommate-finder-server-beta.vercel.app/post-details/${params.id}`
           ),
         HydrateFallback: Loading,
+      },
+      {
+        path: "/about-us",
+        Component: AboutUs,
+      },
+      {
+        path: "/contact",
+        Component: Contact,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        index: true,
+        Component: Overview,
+        loader: () =>
+          fetch("https://roommate-finder-server-beta.vercel.app/post"),
+        HydrateFallback: Loading,
+      },
+      {
+        path: "browse-listing",
+        Component: BrowseListing,
+        loader: () =>
+          fetch("https://roommate-finder-server-beta.vercel.app/post"),
+        HydrateFallback: Loading,
+      },
+      {
+        path: "add-to-find-roommate",
+        element: (
+          <PrivateRoute>
+            <RoommateAddForm />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "my-listing",
+        element: (
+          <PrivateRoute>
+            <MyListing />
+          </PrivateRoute>
+        ),
       },
     ],
   },

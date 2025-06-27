@@ -40,7 +40,7 @@ const UpdatePost = () => {
         .then((data) => {
           if (data.modifiedCount) {
             toast.success("Post updated successfully!");
-            navigate("/my-listing");
+            navigate("/Dashboard/my-listing");
           } else {
             toast.error("Something went wrong. Please try again.");
           }
